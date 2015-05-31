@@ -1,0 +1,59 @@
+Main functions
+
+-----------------------
+S = BaSDI(O, h, w)
+
+O: input dataset. O is an cell array -- O{1} is data from frame 1. Each O{n} is a Nx2 matrix listing the (y,x) coordinates of the molecules detected.
+h: height of the image
+w: width of the image.
+
+S: output structure. 
+   S.theta: the corrected image.
+   S.g:	    posterior distirbution funciton P(d_k|o,theta).
+   S.e:     drift probability on each frame. Can be used as the input for compute the most likely drift trace using viterbi.m
+
+
+
+BaSDI_demo
+
+A simple demo that randomly generate a drift trace and a set of single-molecule coordinates data as the input to BaSDI, then run 
+BaSDI to estimate the drift and generate the corrected image.
+
+
+
+
+---------------------
+
+Utility functions
+
+
+d_out = processing_result(g)
+Output the expectation values of drift at each frame
+
+g:     Use S.g from BaSDI output
+
+d_out: Expectation values of the drift.
+
+
+----
+
+
+v = viterbi(e, p)
+This is a general imprementation of viterbi algorithm. It return most likely state sequence based on viterbi algorithm.
+
+e: The S.e output from BaSDI
+p: sigma^2 of the prior. Default is 0.2
+
+v: output. The most likely state sequence.
+
+
+----
+
+
+O1 = cat_cellarray(O, n)
+
+Combine every n frames. 
+
+This is useful when it is not desired to estimate drift for every frame (but every n frames) in order to speed up the computation.
+
+
