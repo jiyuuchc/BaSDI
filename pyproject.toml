@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "basdi"
+version = "0.1.0"
+description = ""
+authors = ["Ji Yu <jyu@uchc.edu>"]
+license = "GPL3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.11"
+jax = "^0.4.14"
+numpy = "^1.26.0"
+
+[tool.poetry.group.dev.dependencies]
+typer = "^0.9.0"
+matplotlib = "^3.7.1"
+opencv-python = "^4.7.0.72"
+pytest = "^7.2.2"
+jupyterlab = "^3.6.1"
+imagecodecs = "^2023.3.16"
+jax = {extras = ["cuda11-pip"], version = "^0.4.14"}
+pandas = "^2.1.1"
+
+[[tool.poetry.source]]
+name = "jax"
+url = "https://storage.googleapis.com/jax-releases/jax_cuda_releases.html"
+default = false
+secondary = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
