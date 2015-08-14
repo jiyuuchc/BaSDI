@@ -1,4 +1,4 @@
-function S = BaSDI(O, h, w)
+function S = BaSDI_main(O, h, w)
 
 % Change these to suit you need
 max_iter = 5; % maximum number of iteration for each round of optimization

@@ -1,7 +1,7 @@
 Main functions
 
 -----------------------
-S = BaSDI(O, h, w)
+S = BaSDI_main(O, h, w)
 
 O: input dataset. O is an cell array -- O{1} is data from frame 1. Each O{n} is a Nx2 matrix listing the (y,x) coordinates of the molecules detected.
 h: height of the image

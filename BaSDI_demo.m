@@ -6,4 +6,4 @@ imagesc(construct_palm(O,500,500));
 input('showing uncorrected image\n press enter to continue');
 
 display('running BaSDI');
-S = BaSDI(O, 500, 500);
+S = BaSDI_main(O, 500, 500);
