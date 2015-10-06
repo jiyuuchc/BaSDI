@@ -1,4 +1,11 @@
 function OC = remove_border(O, h, w, m)
+% OC = remove_border(O, h, w, m)
+% Remove localization data that are within a m pixel border of the images.
+% O: localization dataset. Cell array of N elements.
+% h: height of image.
+% w: width of image.
+% m: border size.
+% OC: new localization dataset with molecules at the border removed.
 
 for i = 1:length(O)
     o = O{i};

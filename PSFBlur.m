@@ -1,4 +1,6 @@
 function J = PSFBlur(I, psfFWHM)
+% J = PSFBlur(I, psfFWHM)
+% Gaussian filtering of a image.
 
 s = psfFWHM / 2.355;
 d = floor(psfFWHM * 3);

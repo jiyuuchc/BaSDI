@@ -1,4 +1,12 @@
 function O = gen_palm_data(I, n, d)
+% Simple simulation to generate a localization imaging dataset
+% O = gen_palm_data(I, n, d)
+% Inputs:
+% I: ground truth image.
+% n: average number of molecules detected in each frame
+% d: a drift trace (N x 2 array). The length of d also determined the number  of image frames generated
+% Output:
+% O: a cell array representing the localization dataset.
 
 [h,w] = size(I);
 

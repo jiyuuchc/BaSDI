@@ -1,4 +1,5 @@
 function e = exyf2(logtheta, o, max_shift)
+%compute e(dx, dy) = P(dx,dy|theta,o)
 
 [h,w] = size(logtheta);
 e = zeros(max_shift * 2 + 1, max_shift * 2 + 1);

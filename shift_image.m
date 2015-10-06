@@ -1,4 +1,9 @@
 function J = shift_image(I, d)
+% J = shift_image(I, d)
+% Shift image I by a translational drift d
+% I: input image. 2D array
+% d: tuple (dx, dy)
+% J: output image.
 
 [h,w] = size(I);
 dx = d(2);

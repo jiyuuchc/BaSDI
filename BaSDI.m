@@ -5,9 +5,9 @@ function S = BaSDI(O, pixel_size)
 %    'O' can either be a simple array or a cell array
 %    If O is a simple array, each row of the array represents one
 %    localization event in the format of (y,x,frame). Frame starts at 1.
-%    If O is a cell array, each cell is a two-colume array representing a
+%    If O is a cell array, each cell is a two-column array representing a
 %    single image frame.
-%    The y,x coordiantes can be in any physical unit, e.g. 'nm', as long as
+%    The y,x coordinates can be in any physical unit, e.g. 'nm', as long as
 %    it is the same unit for 'pixel_size'. Coordinate (0,0) represents top-left 
 %    of the image.
 % pixel_size: The pixle_size used for rendering the final corrected

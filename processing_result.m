@@ -1,4 +1,9 @@
 function [d_out, sigma] = processing_result(g)
+% [d_out, sigma] = processing_result(g) 
+%  Compute some simple statistics of the drift
+% g: Marginal posteriori distributions of drift. It is computed from for_back function
+% d_out: expectation values of sample position
+% sigma: distance between adjacent positions 
 
 [h,w,f] = size(g);
 maxshift = (h - 1)/2;

@@ -1,21 +1,29 @@
 function S = BaSDI_main(O, h, w)
 
 % Change these to suit you need
-max_iter = 5; % maximum number of iteration for each round of optimization
-cvge = 0.3; % convergence test criteria
+% ---------------------------------
 
-p = 0.2; % amplitude of drift
-eps = 0; %0.001/h/w; % creep proability
-max_shift = 30; % maximum drift that is being calculated
-resolution = 2; % Localization uncertainty (FWHM) in PALM pixels
-
-%annealing schedule
+% Annealing schedule. 
+% The algorithm run multiple runs of optimization with reducing smoothing parameter (scale) for each round. The annealing schedule helps the convergence of the optimization
+% scale: starts at the value below and gradually decrease to zero, controls the size of the low-pass filter used to smooth the theta image. You can reduce the starting value of scale (to save time) if your data is of good quality (high sampling rate). Reducing it too much will result in convergence problems.
+% anneal_step controls the rate of scale decreasing. 
 scale = 2.4; % starting smoothing parameter
-anneal_step = 0.4; % amount of reduction of smoothness for each round
+anneal_step = 0.4; % speed of scale decreasing
 
-% ----------------------------------
+% convergence control in each round of optimization
+% In each round, the EM iterations were run until convergence is achieved (controlled by cvge parameter) or maximum iteration had been reached.
+cvge = 0.3; % convergence test criteria
+max_iter = 5; %% maximum number of iteration for each round of optimization
 
-% Preprocessing
+%others
+p = 0.2; % amplitude (sigms^2) of drift
+eps = 0.001/h/w; % creep probability. Set to 0 if your system don't have a creep problem
+max_shift = 30; % maximum drift (pixels) that is being calculated
+resolution = 2; % Localization uncertainty (FWHM) in pixels
+
+% ---------------------------------------------
+
+% setting up parameters
 if (nargin < 5)
     theta = construct_palm(O, h, w);
 end

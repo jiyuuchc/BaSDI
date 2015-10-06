@@ -1,4 +1,13 @@
 function I = construct_palm(O, h, w, d)
+% Output a reconstructed super-resolution image based on input data and drift
+% I = construct_palm(O, h, w, d)
+% Inputs:
+% O: localization dataset. A cell array with N elements. N is the number of image frames.
+% h: hight of the image
+% w: width of the image
+% d: drift trace. Nx2 array
+% Output:
+% I: reconstructed super-resolution image. An 2D array (h x w).
 
 L = length(O);
 

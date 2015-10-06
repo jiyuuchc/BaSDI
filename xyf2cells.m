@@ -12,7 +12,7 @@ if (w > 3 && h == 3)
     xyf = xyf';
 end
 
-%Well it's beyong hope
+%Well it's beyond hope
 if (w < 3 )
     error('BaSDI:matrixSize', 'The input matrix size should be Nx3')
 end

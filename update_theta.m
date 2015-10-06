@@ -1,4 +1,10 @@
 function theta = update_theta(O,h,w,g)
+% theta = update_theta(O,h,w,g)
+% the M step: obtaining new theta values
+% O: localization dataset. A cellarray.
+% h: image height
+% w: image width
+% g: P(dx,dy). marginal posteriori distributions of drift from last iteration
 
 theta = zeros(h,w);
 [dh, dw, frames] = size(g);
