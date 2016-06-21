@@ -16,8 +16,8 @@ cvge = 0.3; % convergence test criteria
 max_iter = 5; %% maximum number of iteration for each round of optimization
 
 %others
-p = 0.2; % amplitude (sigms^2) of drift
-eps = 0.001/h/w; % creep probability. Set to 0 if your system don't have a creep problem
+p = 0.1; % amplitude (sigms^2) of drift
+eps = 0.00/h/w; % creep probability. Set to 0 if your system don't have a creep problem
 max_shift = 30; % maximum drift (pixels) that is being calculated
 resolution = 2; % Localization uncertainty (FWHM) in pixels
 

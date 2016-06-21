@@ -3,7 +3,7 @@ function e = exyf2(logtheta, o, max_shift)
 
 [h,w] = size(logtheta);
 e = zeros(max_shift * 2 + 1, max_shift * 2 + 1);
-oi = ij_to_image(o - max_shift, h - max_shift * 2, h - max_shift * 2);
+oi = ij_to_image(o - max_shift, h - max_shift * 2, w - max_shift * 2);
 
 e = conv2(logtheta(h:-1:1,w:-1:1), oi, 'valid');
 

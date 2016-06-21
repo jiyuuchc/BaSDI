@@ -34,8 +34,9 @@ e = EXY(theta2, OC, parameters.max_shift);
 display('M step');
 theta = update_theta(O, h, w, g);
 
-%processing_result(g); input('');
-%imagesc(theta); input('');
+%figure(1); plot(processing_result(g));
+%figure(2);imagesc(theta); colormap('gray');
+%input('press enter');
 
 S.theta = theta;
 S.e = e;

@@ -1,7 +1,7 @@
 Main functions
 
 -----------------------
-S = BaSDI_main(O, pixel_size)
+S = BaSDI(O, pixel_size)
 
 O: input localization data
    'O' can either be a simple array or a cell array

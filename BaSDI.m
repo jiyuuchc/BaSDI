@@ -20,6 +20,8 @@ function S = BaSDI(O, pixel_size)
 %    probability distribution P(d). Can be used as the input for
 %    compute the most likely drift trace using viterbi.m.
 
+padding = 60; % padding some empty pixels around image borders
+
 if (nargin == 1) 
     pixel_size = 1;
     warning('BaSDI:Preprocessing', 'Only one input. Assuming pixel_size is 1');
@@ -47,8 +49,6 @@ end
 
 % Estimating image size and convert coordinates into pixels
 
-padding = 30; % padding some empty pixels around image borders
-
 L = length(O);
 mc = [0,0];
 for i = 1:L;
@@ -62,12 +62,15 @@ end
 
 % round up to the near 10.
 mc = (floor(mc/10) + 1) * 10;
-h = mc(1) + padding
-w = mc(2) + padding
+h = mc(1) + padding;
+w = mc(2) + padding;
 
 if (h*w > 5e7) 
     warning('BaSDI:Preprocessing', 'Very large images. May take very long time');
 end
+
+imagesc(construct_palm(O, h, w));
+input('Press enter to start');
 
 S = BaSDI_main(O, h, w);
 
