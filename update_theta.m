@@ -17,7 +17,7 @@ gn = gn / sum(gn(:));
 cx = sum(sum(x.*gn));
 cy = sum(sum(y.*gn));
 
-for k = 1:frames;
+parfor k = 1:frames;
 
     I = ij_to_image(O{k}, h, w);
     %theta = theta + imfilter(I, g(:,:,k),'conv');

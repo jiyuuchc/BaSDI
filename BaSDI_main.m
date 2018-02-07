@@ -35,6 +35,8 @@ parameters.max_shift = max_shift;
 parameters.scale = scale;
 
 %start
+gcp;
+
 iter_r = 1;
 d = zeros(length(O), 2);
 while (scale >= 1.2)

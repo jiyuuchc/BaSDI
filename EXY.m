@@ -21,7 +21,7 @@ eps = (max_shift * 2 + 1)^(-2);
 theta = theta + bg; % add a small chance for bg noise
 logtheta = log(theta); % compute in log space to avoid overflow
 
-for k = 1:length(O);
+parfor k = 1:length(O);
     o = O{k};
     if (length(o) > 0) % make sure it's not an empty frame (no molecule)
         
