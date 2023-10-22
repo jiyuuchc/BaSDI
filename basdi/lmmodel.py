@@ -90,9 +90,11 @@ class LMModel:
 
 
     def build(self, locs:ArrayLike, errs:ArrayLike, n_samples:int)->None:
-        self._get_bbox(locs)
+        locs = jnp.asarray(locs)
+        errs = jnp.asarray(errs)
 
-        errs = jnp.broadcast_to(jnp.asarray(errs), locs.shape)
+        self._get_bbox(locs)
+        errs = jnp.broadcast_to(errs, locs.shape)
 
         if self.mode == "minimal":
             hm = self._build_minimal(locs, errs, n_samples)

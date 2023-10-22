@@ -109,7 +109,7 @@ def smc_run_drift_inference(key: RNG, lm_model:LMModel, drift_model: DriftModel,
 
         history = smc_resample(k2, history, p, n_samples=n_samples)
 
-    return history
+    return history[1:]
 
 
 def smc_apply_drift(drift_model:DriftModel, data: Iterable, drifts: ArrayLike)->onp.ndarray:
