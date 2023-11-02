@@ -33,6 +33,8 @@ class LMModel:
         self.block_size = block_size
 
         self.border_width = 50
+        self.mins = None
+        self.maxs = None
         self._built = False
     
 
@@ -139,7 +141,7 @@ class LMModel:
     def render(self, locs:ArrayLike)->Array:
         """ Create a histogram image from localizations
         """
-        if not self._built:
+        if self.mins is None or self.maxs is None:
             self._get_bbox(locs)
         
         return self._render(locs)
