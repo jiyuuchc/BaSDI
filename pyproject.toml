@@ -20,6 +20,8 @@ jupyterlab = "^3.6.1"
 imagecodecs = "^2023.3.16"
 jax = {extras = ["cuda11-pip"], version = "^0.4.14"}
 pandas = "^2.1.1"
+tqdm = "^4.66.1"
+scikit-image = "^0.22.0"
 
 [[tool.poetry.source]]
 name = "jax"
